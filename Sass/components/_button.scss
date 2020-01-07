@@ -1,0 +1,196 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    border-radius: 100px;
+    box-shadow: $color-black;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 0.98rem 1.5rem;
+    font-size: $default-font-size;
+    text-align: center;
+    overflow: hidden;
+    font-family: "Cabin", sans-serif;
+    text-transform: uppercase;
+
+    //change for the button
+    border: none;
+    cursor: pointer;
+
+    @include respond(phone) {
+      padding: 0.7rem 1rem;
+    }
+  }
+  &:hover {
+    color: $color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    background-image: linear-gradient(
+      to left bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+  }
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(3px);
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.2);
+  }
+  &--right,
+  &--red {
+    float: right;
+    margin-right: 3rem;
+    margin-top: 0.35rem;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+    color: $color-white;
+
+    @include respond(tab-port) {
+      display: none !important;
+    }
+  }
+
+  &--contact-us {
+    font-size: 1rem;
+    font-weight: 300;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+    color: $color-white;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 100px;
+    text-transform: uppercase;
+    box-shadow: $color-black;
+    cursor: pointer;
+    text-decoration: none;
+
+    //select all child elements
+
+    & > * {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      transition: all 0.2s;
+    }
+
+    &__visible {
+      padding: 1rem 0.9rem;
+    }
+
+    &__invisible {
+      position: absolute;
+      padding: 1rem 0;
+      left: 0;
+      top: -100%;
+    }
+
+    &:hover {
+      background-image: linear-gradient(
+        to left bottom,
+        $color-secondary-light,
+        $color-secondary-dark
+      );
+      transform: translateY(-3px);
+    }
+
+    &:hover &__visible {
+      transform: translateY(100%);
+    }
+    &:hover &__invisible {
+      top: 0;
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(3px);
+    }
+  }
+
+  &--white {
+    float: right;
+    width: 60%;
+    margin-top: 5rem;
+    margin-left: 60%;
+    margin-right: 17%;
+    background-color: $color-white;
+    color: $color-black;
+    @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      width: 65%;
+    }
+    @include respond(phone) {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      width: 50%;
+      margin-left: 45%;
+      margin-right: 25%;
+      padding: 0.98rem 1rem;
+    }
+
+    &:hover {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-white,
+        $color-primary-light
+      );
+      color: $color-button-header;
+    }
+  }
+  &--animated {
+    color: $color-white;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+    transition: all 0.2s;
+    animation: moveInBottom 0.8s ease-out 0.7s;
+    animation-fill-mode: backwards;
+  }
+}
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-button-header;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding: 3px;
+    transition: all 0.2s;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+  &:hover {
+    // background-image: linear-gradient(
+    //   to right bottom,
+    //   $color-secondary-light,
+    //   $color-secondary-dark
+    // );
+    // color: linear-gradient(
+    //   to right bottom,
+    //   $color-secondary-light,
+    //   $color-secondary-dark
+    // );
+    background-color: transparent;
+    // box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    transform: translateY(-2px);
+  }
+  &:active {
+    // box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    transform: translateY(3px);
+  }
+}

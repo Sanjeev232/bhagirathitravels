@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //global font size change all other measurements to rem 10pt=16px=100%=1rem=1em by default
+  //this define value of 1rem
+  font-size: 100%; //1rem = 16px
+  scroll-behavior: smooth;
+  ::selection {
+    color: $color-white;
+    background: $color-ninth-dark;
+  }
+  // @include respond(phone) {
+  //   font-size: 50%; //i want 1rem = 8px no need this one
+  // }
+
+  @include respond(tab-land) {
+    //width < 1200px
+    //i want 1rem = 9px
+    font-size: 90%;
+  }
+
+  @include respond(tab-port) {
+    //width < 900px
+    //i want 1rem = 8px
+    font-size: 88%;
+  }
+
+  @include respond(big-desktop) {
+    //1 rem  = 12px
+    font-size: 120%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  // text-align: justify;
+}

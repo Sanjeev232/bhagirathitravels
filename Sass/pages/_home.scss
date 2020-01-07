@@ -1,0 +1,86 @@
+.section__about {
+  background-color: $color-gray-light-1;
+  padding: 9rem 0;
+  margin-top: -10rem;
+}
+
+.section__our-services {
+  padding: 3rem 0;
+  background-image: linear-gradient(
+      to left bottom,
+      rgba($color-primary-light, 0.562),
+      rgba($color-primary-dark, 0.521)
+    ),
+    url(../img/MUSSOORIE.jpg);
+  background-size: cover;
+  background-position: top;
+  transform: skewY(-2deg);
+  margin-top: -8rem;
+
+  // direct child selector select all childs of section__our-services
+  & > * {
+    transform: skewY(2deg);
+  }
+}
+
+.section-tour {
+  background-color: $color-gray-light-1;
+  padding: 9rem 0 5rem 0;
+  margin-top: -8rem;
+}
+
+.section-book {
+  padding: 1rem 0 8rem 0;
+  background-image: linear-gradient(
+    to left bottom,
+    rgba($color-primary-light, 0.9),
+    rgba($color-primary-dark, 0.9)
+  );
+}
+
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.7) 0%,
+      rgba($color-white, 0.5) 45%,
+      transparent 48%
+    ),
+    url(../img/contactus.jpg);
+  background-size: cover;
+  background-position: top;
+  background-size: cover; //also use 100% instead of cover
+  border-radius: 10px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
+  overflow: hidden;
+
+  @include respond(tab-land) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.7) 0%,
+        rgba($color-white, 0.5) 50%,
+        transparent 44%
+      ),
+      url(../img/contactus.jpg);
+  }
+
+  @include respond(tab-port) {
+    background-image: linear-gradient(
+      to right,
+      rgba($color-white, 0.7) 0%,
+      rgba($color-white, 0.7) 100%
+    );
+  }
+
+  &__form {
+    width: 50%;
+    padding: 1rem;
+
+    @include respond(tab-land) {
+      width: 55%;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+}

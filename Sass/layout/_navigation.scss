@@ -1,0 +1,89 @@
+.navbar {
+  width: 100%;
+  background-color: $color-white;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: sticky;
+  box-shadow: 0rem 0.1rem 0.7rem $color-gray;
+  z-index: 9999;
+
+  &--anchor {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      display: inline-block;
+      color: $color-ninth-dark;
+      text-align: center;
+      padding: 1.3rem 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: "Merriweather", serif;
+      margin-left: 2rem;
+      transition: all 0.2s;
+
+      @include respond(tab-land) {
+        padding: 1.3rem 0.8rem;
+        font-size: 1rem;
+      }
+
+      @include respond(tab-port) {
+        &:not(:first-child) {
+          display: none;
+        }
+        float: left;
+        display: block;
+        text-decoration: none;
+        margin-left: 0rem;
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+
+    &:hover,
+    &:active {
+      color: $color-button-header;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+      transform: scale(1.1);
+
+      @media only screen and (max-width: 68.75em),
+        only screen and (hover: none) {
+        transform: none;
+      }
+    }
+  }
+
+  &--icon {
+    display: none;
+
+    @include respond(tab-port) {
+      float: right;
+      margin-right: 2rem;
+      margin-top: 0.2rem;
+      display: inline-block;
+      font-size: 1.5rem;
+      color: $color-secondary-dark;
+    }
+  }
+}
+
+//responsive navbar add this class via javaScript .navbar__responsive
+
+@include respond(tab-port) {
+  .navbar.navbar__responsive {
+    position: sticky;
+  }
+
+  .navbar.navbar__responsive .navbar--anchor {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .navbar.navbar__responsive .navbar--icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

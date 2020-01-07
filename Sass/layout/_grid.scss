@@ -1,0 +1,77 @@
+.row,
+.row-2 {
+  // width:1140px; standard width now a days but use max-width instead
+  max-width: $grid-width;
+
+  // background-color: rgb(184, 179, 179);
+  margin: 0 3rem;
+
+  //not pseudo selector it will select all child expect last one
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  @include clearfix;
+
+  //CSS Attribute Selectors
+  //^ select elements whose attribute value begins with a specified value e.g col-
+  [class^="col-"] {
+    // background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 100% !important;
+    }
+  }
+
+  .col-1-of-2 {
+    //if you use variable in cacl than add #{$}
+
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * (#{$gutter-horizontal})
+    );
+  }
+}
